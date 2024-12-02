@@ -122,39 +122,39 @@ nav a:hover {
     text-shadow: 0 0 10px #c7c1f4, 0 0 20px #c7c1f4;
 }
 /* Adjust for tablets and small screens */
-@media screen and (max-width: 768px) {
+/* Responsive Adjustments */
+@media screen and (max-width: 800px) {
     .nav-container {
-        flex-wrap: wrap; /* Allow wrapping */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        justify-content: center; /* Center align items */
         padding: 10px;
-        flex-direction: column; /* Stack items */
-        justify-content: center; /* Center everything */
     }
+
     .nav-left {
-        position: relative; /* Reset position for smaller screens */
-        top: auto;
-        left: auto;
-        text-align: center; /* Center the logo */
-        margin-bottom: 10px;
+        margin: 0;
+        padding: 0;
+        display: flex; /* Ensure horizontal alignment */
     }
+
+    .nav-left li a {
+        font-size: 1.5rem; /* Adjust size for smaller screens */
+        padding: 0 5px;     /* Reduce spacing */
+    }
+
     .nav-center {
-        flex-direction: column; /* Stack navigation links vertically */
-        margin-top: 10px;
+        flex-wrap: wrap; /* Allow links to wrap if necessary */
+        justify-content: center; /* Center align links */
     }
 
     .nav-center li {
-        margin: 10px 0;
-    }
-}
-@media screen and (max-width: 480px) {
-    .nav-left li a {
-        font-size: 1.5rem; /* Reduce logo size for mobile */
+        margin: 5px 10px; /* Adjust spacing for smaller screens */
     }
 
     .nav-center li a {
-        font-size: 1rem; /* Adjust navigation text size for mobile */
+        font-size: 1rem; /* Adjust text size */
+        padding: 5px 10px;
     }
 }
-   
 
 
 /* Main Header Content */
