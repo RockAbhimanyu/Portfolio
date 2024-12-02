@@ -20,27 +20,28 @@ header {
 .nav-container {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
-    padding: 10px 0;
+    padding: 15px 0;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: background-color 0.3s ease-in-out;
     display: flex;
-    justify-content: space-between; /* Distribute space between left and center elements */
+    justify-content: center; /* Center the navigation items */
     align-items: center;
     flex-wrap: nowrap; /* Prevent wrapping of child elements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
 /* Navigation left for 'Abhimanyu' */
+/* Navigation left for 'Abhimanyu' */
 .nav-left {
-    display: flex;
-    justify-content: flex-start;
-    flex: 0 1 auto; /* Prevent it from taking too much space */
-    padding-left: 20px;
+    position: absolute; /* Fix it to the top left corner */
+    top: 10px; /* Adjust spacing from the top */
+    left: 20px; /* Adjust spacing from the left */
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-left li {
@@ -52,18 +53,20 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 2rem;
-    padding: 10px;
+    padding: 1px;
     transition: color 0.3s ease-in-out;
     white-space: nowrap; /* Prevent wrapping */
 }
 
 
 /* Navigation center for other links */
+/* Navigation center for other links */
 .nav-center {
     display: flex;
     justify-content: center;
-    flex: 0 1 auto; /* Center links but allow shrinking */
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-center li {
@@ -76,7 +79,7 @@ header {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     padding: 10px 20px;
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -118,36 +121,51 @@ nav a {
 nav a:hover {
     text-shadow: 0 0 10px #c7c1f4, 0 0 20px #c7c1f4;
 }
+/* Adjust for tablets and small screens */
 @media screen and (max-width: 768px) {
     .nav-container {
-        flex-wrap: wrap; /* Allow items to wrap */
+        flex-wrap: wrap; /* Allow wrapping */
         padding: 10px;
+        flex-direction: column; /* Stack items */
+        justify-content: center; /* Center everything */
     }
-
-    .nav-left,
+    .nav-left {
+        position: relative; /* Reset position for smaller screens */
+        top: auto;
+        left: auto;
+        text-align: center; /* Center the logo */
+        margin-bottom: 10px;
+    }
     .nav-center {
-        flex: 1 100%; /* Stack items */
-        justify-content: center;
-    }
-
-    .nav-left li a {
-        font-size: 1.5rem;
+        flex-direction: column; /* Stack navigation links vertically */
+        margin-top: 10px;
     }
 
     .nav-center li {
-        margin: 10px 0; /* Add spacing between links when stacked */
+        margin: 10px 0;
     }
 }
+@media screen and (max-width: 480px) {
+    .nav-left li a {
+        font-size: 1.5rem; /* Reduce logo size for mobile */
+    }
+
+    .nav-center li a {
+        font-size: 1rem; /* Adjust navigation text size for mobile */
+    }
+}
+   
 
 
 /* Main Header Content */
 .header-content {
     display: flex;
+    flex-direction: row; /* Default: side-by-side layout */
     justify-content: space-between;
     align-items: center;
     margin-top: 60px; /* Prevent content from being covered by the fixed nav */
     padding: 20px;
-    height: calc(100vh - 60px); /* Adjust to take into account the fixed nav */
+    height: calc(100vh - 60px); /* Adjust height for the fixed nav */
 }
 
 .header-left {
@@ -230,6 +248,65 @@ nav a:hover {
         transform: translateX(0);
     }
 }
+/* Responsive Design */
+
+/* Medium Devices: Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+    .header-content {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center-align text */
+        height: auto; /* Let content determine height */
+    }
+
+    .header-left,
+    .header-right {
+        width: 100%; /* Full width for each section */
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+
+    .header-right h1 {
+        font-size: 2.5rem; /* Adjust heading size */
+    }
+
+    .header-right p {
+        font-size: 1.2rem; /* Adjust paragraph size */
+    }
+
+    .header-right .btn {
+        padding: 0.8rem 1.5rem; /* Compact button size */
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .header-image {
+        max-width: 300px; /* Reduce image size for tablets */
+    }
+}
+
+/* Small Devices: Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    .header-content {
+        margin-top: 80px; /* Add extra spacing for fixed nav */
+        padding: 10px;
+    }
+
+    .header-right h1 {
+        font-size: 2rem; /* Further reduce heading size */
+    }
+
+    .header-right p {
+        font-size: 1rem; /* Smaller paragraph size */
+    }
+
+    .header-right .btn {
+        padding: 0.6rem 1rem; /* Compact button size */
+        font-size: 0.9rem; /* Adjust font size */
+    }
+
+    .header-image {
+        max-width: 90%; /* Make image responsive */
+        margin: 0 auto; /* Center image on mobile */
+    }
+}
 
 /* About Section */
 #about {
@@ -246,8 +323,8 @@ nav a:hover {
     font-weight: bold;
     margin-bottom: 20px;
     color: #c7c1f4;
-    position: relative;
-    z-index: 2;
+    /* position: relative;
+    z-index: 2; */
 }
 
 .about-content {
@@ -265,8 +342,8 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     border: 2px solid #c7c1f4;
-    position: relative;
-    z-index: 2;
+    /* position: relative; */
+    /* z-index: 2; */
 }
 
 .about-text p {
@@ -342,15 +419,15 @@ nav a:hover {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 2;
+    /* position: relative; */
+    /* z-index: 2; */
 }
 
 .achievements h3 {
     font-size: 2.5rem;
     color: #ffffff;
     margin-bottom: 20px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .achievement-list {
@@ -403,6 +480,74 @@ nav a:hover {
     color: #c7c1f4;
 }
 
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+    }
+
+    .about-text,
+    .about-image {
+        width: 100%; /* Full width for both sections */
+    }
+
+    .about-text {
+        margin-bottom: 20px; /* Add spacing between text and image */
+    }
+
+    .about-image img {
+        max-width: 80%; /* Reduce image size for tablets */
+    }
+
+    .achievements h3 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+}
+
+/* Mobile Devices (480px and below) */
+@media screen and (max-width: 480px) {
+    #about {
+        padding: 3rem 1rem;
+    }
+
+    #about h2 {
+        font-size: 2rem; /* Smaller heading size */
+    }
+
+    .about-text {
+        padding: 15px; /* Compact padding */
+    }
+
+    .about-text p {
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    .about-image img {
+        max-width: 100%; /* Fit image within mobile width */
+    }
+
+    .download-section .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .achievements h3 {
+        font-size: 1.8rem;
+    }
+
+    .achievement i {
+        font-size: 2rem; /* Reduce icon size */
+    }
+
+    .achievement-content h4 {
+        font-size: 1.2rem; /* Smaller heading size */
+    }
+
+    .achievement-content p {
+        font-size: 1rem; /* Smaller paragraph size */
+    }
+}
 
 
 /* Skills Section */
@@ -567,7 +712,8 @@ nav a:hover {
     background-color: #2a2a2a;
     border-radius: 10px;
     padding: 25px;
-    width: 250px;
+    width: 100%;
+    max-width: 250px; /* Limit width for larger screens */
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.3s ease;
@@ -616,16 +762,43 @@ nav a:hover {
     transform: translateY(-10px);
 }
 
+/* Tablet Devices */
 @media (max-width: 768px) {
     .coding-platforms-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .coding-platform-card {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row */
+        max-width: 100%;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .coding-platforms-container {
         flex-direction: column;
-        align-items: center;
+        gap: 20px;
     }
 
     .coding-platform-card {
         width: 100%;
-        max-width: 350px;
         margin-bottom: 20px;
+    }
+
+    .coding-platform-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .coding-platform-card p {
+        font-size: 1rem;
+    }
+
+    .coding-platform-card .platform-header .platform-logo {
+        width: 30px;
+        margin-right: 5px;
     }
 }
 
@@ -766,17 +939,21 @@ nav a:hover {
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap; /* Added to ensure wrapping on smaller devices */
 }
 
-.contact-info {
+.contact-info, .contact-form {
     flex: 1;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 550px; /* Added a max-width for better control */
+    margin: 10px auto; /* Ensure centered alignment */
 }
 
-.contact-info h2 {
+.contact-info h2, .contact-form h3 {
     font-size: 2.5rem;
     color: #c7c1f4;
     margin-bottom: 20px;
@@ -791,36 +968,25 @@ nav a:hover {
 .contact-info ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .contact-info ul li {
     font-size: 1rem;
     color: #333;
     margin: 10px 0;
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
 .contact-info a {
     color: #c7c1f4;
     text-decoration: none;
     font-weight: bold;
+    word-break: break-word; /* Ensure URLs don't break layout */
 }
 
 .contact-info a:hover {
     color: #000000;
-}
-
-.contact-form {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h3 {
-    font-size: 2rem;
-    color: #c7c1f4;
-    margin-bottom: 20px;
 }
 
 .contact-form .form-group {
@@ -855,22 +1021,26 @@ nav a:hover {
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%; /* Full width for better UX */
+    max-width: 300px; /* Prevent overly large buttons */
+    margin: 0 auto; /* Center button */
+    display: block; /* Ensure block-level centering */
 }
 
 .contact-form button:hover {
     background-color: #7260fa;
-    
 }
 
-/* Responsive Design for Contact Section */
+/* Tablet Devices */
 @media (max-width: 768px) {
     .contact-container {
-        flex-direction: column;
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Reduce gap */
     }
 
     .contact-info, .contact-form {
-        flex: none;
         width: 100%;
+        margin: 0 auto;
     }
 
     .contact-info ul li {
@@ -878,6 +1048,7 @@ nav a:hover {
     }
 }
 
+/* Mobile Devices */
 @media (max-width: 480px) {
     .contact-section {
         padding: 40px 20px;
@@ -889,6 +1060,16 @@ nav a:hover {
 
     .contact-info p, .contact-info ul li {
         font-size: 0.9rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+        padding: 12px; /* Adjust for smaller screens */
+        font-size: 0.9rem;
+    }
+
+    .contact-form button {
+        font-size: 1rem; /* Slightly smaller button text */
+        padding: 12px 25px; /* Adjust button padding */
     }
 }
 
