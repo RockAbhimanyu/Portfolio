@@ -284,6 +284,9 @@ nav a:hover {
 
 /* Small Devices: Mobile (480px and below) */
 @media screen and (max-width: 480px) {
+    header {
+    height: 239vh;
+    }
     .header-content {
         margin-top: 80px; /* Add extra spacing for fixed nav */
         padding: 10px;
