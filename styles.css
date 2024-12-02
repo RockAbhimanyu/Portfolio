@@ -252,6 +252,10 @@ nav a:hover {
 
 /* Medium Devices: Tablets (768px and below) */
 @media screen and (max-width: 768px) {
+    header {
+    height: auto;    
+    max-height: 300vh;
+    }
     .header-content {
         flex-direction: column; /* Stack content vertically */
         text-align: center; /* Center-align text */
