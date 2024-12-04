@@ -1,3 +1,14 @@
+// menu button
+function toggleMenu() {
+    const navCenter = document.getElementById("nav-center");
+    const menuButton = document.querySelector(".menu-button");
+    
+    navCenter.classList.toggle("show"); // Toggle the menu visibility
+    menuButton.classList.toggle("open"); // Toggle the "open" class to change the button into "X"
+}
+
+
+
 // JavaScript for smooth scroll effect (optional)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -129,5 +140,4 @@ function handleProgressBarVisibility(section, progressBarId, navItem) {
         navItem.classList.remove('text-glow');
     }
 }
-
 
