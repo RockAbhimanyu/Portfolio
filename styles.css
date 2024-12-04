@@ -198,7 +198,7 @@ nav a:hover {
 /* Responsive Styling for Mobile and Tablets */
 @media screen and (max-width: 1270px) {
     .nav-container {
-        height:3.75rem;
+        height:2.8rem;
     }
     .menu-button {
         display: block; /* Show menu button */
