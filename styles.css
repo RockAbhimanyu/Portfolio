@@ -1076,6 +1076,7 @@ nav a:hover {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    text-align: center;
 }
 
 .project-card:hover {
@@ -1105,6 +1106,7 @@ nav a:hover {
     color: #333;
     margin-bottom: 10px;
     font-weight: bold;
+    text-align: center;
 }
 
 .project-info p {
