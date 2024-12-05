@@ -960,6 +960,7 @@ nav a:hover {
     font-size: 1.5rem;
     color: #ffffff;
     margin: 0;
+    height: 30px;
 }
 
 .coding-platform-card p {
