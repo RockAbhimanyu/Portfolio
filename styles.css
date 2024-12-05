@@ -966,7 +966,8 @@ nav a:hover {
 .coding-platform-card p {
     font-size: 1.1rem;
     color: #ddd;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+      height: 30px;
 }
 
 .coding-platform-card .platform-link a {
