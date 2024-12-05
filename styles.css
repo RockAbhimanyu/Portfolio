@@ -1298,7 +1298,7 @@ nav a:hover {
 
 .footer-left, .footer-center, .footer-right {
     flex: 1;
-    padding: 20px;
+    padding: 0;
 }
 
 .footer-left h3 {
@@ -1368,12 +1368,14 @@ nav a:hover {
     .footer-container {
         flex-direction: column;
         align-items: center;
+        text-align: center; /* Center-align the text */
     }
 
     .footer-left, .footer-center, .footer-right {
         flex: none;
         width: 100%;
-        text-align: center;
+        margin-bottom: 10px; /* Add spacing between sections */
+        margin-right: 10px;
     }
 
     .footer-left h3 {
@@ -1382,6 +1384,35 @@ nav a:hover {
 
     .footer-center ul li a, .footer-right .social-icons a {
         font-size: 0.9rem;
+    }
+    .footer-center ul li {
+        margin: 5px 0; /* Reduce spacing for list items */
+    }
+
+    .footer-right .social-icons {
+        margin-top: 10px; /* Add spacing above social icons */
+    }
+}
+@media (max-width: 480px) {
+    .footer-container {
+        padding: 10px; /* Add padding for smaller devices */
+    }
+
+    .footer-left h3 {
+        font-size: 1.6rem; /* Reduce heading size further */
+    }
+
+    .footer-left p, .footer-center ul li a, .footer-right .social-icons a {
+        font-size: 0.9rem; /* Further reduce text size */
+    }
+
+    .footer-center ul li {
+        margin: 3px 0; /* Compact spacing for list items */
+    }
+
+    .footer-right .social-icons a {
+        font-size: 1.5rem; /* Reduce icon size */
+        margin: 0 10px; /* Reduce spacing between icons */
     }
 }
 
