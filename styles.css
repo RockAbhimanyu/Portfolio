@@ -243,6 +243,7 @@ nav a:hover {
 
 
 /* Main Header Content */
+/* Main Header Content */
 .header-content {
     display: flex;
     flex-direction: row; /* Default: side-by-side layout */
@@ -251,6 +252,9 @@ nav a:hover {
     margin-top: 60px; /* Prevent content from being covered by the fixed nav */
     padding: 20px;
     height: calc(100vh - 60px); /* Adjust height for the fixed nav */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding and borders are included in dimensions */
+    overflow: hidden; 
 }
 
 .header-left {
@@ -258,6 +262,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .header-image {
@@ -277,24 +282,32 @@ nav a:hover {
 
 .header-right {
     width: 50%;
-    text-align: left;
+    text-align: center;
     animation: fadeInRight 2s ease-out;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center-align text and button */
 }
 
 .header-right h1 {
+    /* display: block; */
     font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 20px;
     animation: slideInLeft 2s ease-out;
+    word-wrap: break-word; /* Prevent text from breaking the container */
 }
 
 .header-right p {
     font-size: 1.5rem;
     margin-bottom: 30px;
     animation: slideInLeft 2.5s ease-out;
+    word-wrap: break-word; /* Prevent text from overflowing */
+    max-width: 90%; /* Limit paragraph width */
 }
 
-.header-right .btn {
+.header-right .explore-section .btn {
     padding: 1rem 2rem;
     background-color: #a79cfc;
     color: white;
@@ -304,8 +317,13 @@ nav a:hover {
     transition: background-color 0.3s ease-in-out;
     border-width: 10px;
     border-color: #000000;
+    display: inline-block;
+    text-align: center;
 }
-
+.header-right .explore-section{
+ text-align: center;
+ width: 100%; /* Center-align content */
+}
 
 .header-right .btn:hover {
     background-color: #7260fa;
@@ -343,14 +361,14 @@ nav a:hover {
     }
     .header-content {
         flex-direction: column; /* Stack content vertically */
-        text-align: center; /* Center-align text */
+       
         height: auto; /* Let content determine height */
     }
 
     .header-left,
     .header-right {
         width: 100%; /* Full width for each section */
-        margin-bottom: 20px; /* Add spacing between sections */
+       
     }
 
     .header-right h1 {
@@ -368,6 +386,7 @@ nav a:hover {
 
     .header-image {
         max-width: 300px; /* Reduce image size for tablets */
+        margin: 0 auto; /* Center image */
     }
 }
 
@@ -380,6 +399,7 @@ nav a:hover {
     .header-content {
         margin-top: 80px; /* Add extra spacing for fixed nav */
         padding: 10px;
+        height: auto; /* Dynamic height */
     }
 
     .header-right h1 {
@@ -388,6 +408,7 @@ nav a:hover {
 
     .header-right p {
         font-size: 1rem; /* Smaller paragraph size */
+        margin-bottom: 20px;
     }
 
     .header-right .btn {
@@ -400,7 +421,6 @@ nav a:hover {
         margin: 0 auto; /* Center image on mobile */
     }
 }
-
 /* About Section */
 #about {
     padding: 4rem 2rem;
@@ -695,12 +715,14 @@ nav a:hover {
     background-color: #222;
 }
 
-#skills {
+.skills-section {
     background-color: #c7c1f4;
     padding: 40px 20px;
     margin-top: 40px;
     border-radius: 10px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 #skills h2 {
@@ -713,8 +735,10 @@ nav a:hover {
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 30px;
     margin-top: 20px;
+    justify-items: center; /* Center align items within the grid */
+    padding: 0 10px; /* Add horizontal padding to prevent edge clipping */
 }
 
 .skill-card {
@@ -724,22 +748,28 @@ nav a:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ensure cards span the column width */
+    max-width: 300px; 
+    /* Prevent overly large cards */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .skill-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background-color: #222;
 }
 
 .skill-card i {
     font-size: 3rem;
     color: #f7f7f7;
     margin-bottom: 15px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease,transform 0.3s ease;;
 }
 
 .skill-card:hover i {
     color: #c7c1f4;
+    transform: scale(1.1)
 }
 
 .skill-card h4 {
@@ -765,9 +795,65 @@ nav a:hover {
 }
 
 /* Hover effect for each skill card */
-.skill-card:hover {
+/* .skill-card:hover {
     background-color: #222;
+} */
+/* Tablets and Smaller */
+@media (max-width: 768px) {
+    #skills h2 {
+        font-size: 2rem;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for tablets */
+        gap: 20px;
+    }
+
+    .skill-card {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row */
+        max-width: 100%; /* Allow full width */
+    }
+
+    .skill-card i {
+        font-size: 2.5rem;
+    }
+
+    .skill-card h4 {
+        font-size: 1.25rem;
+    }
 }
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .skill-section {
+        padding: 40px 15px; /* Adjust padding */
+    }
+    #skills h2 {
+        font-size: 1.8rem;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr; /* One card per row for mobile */
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .skill-card {
+        width: 100%; /* Full width */
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .skill-card i {
+        font-size: 2rem;
+    }
+
+    .skill-card h4 {
+        font-size: 1rem;
+    }
+}
+
+
 /* Coding Platforms Section */
 /* Coding Platforms Section */
 .coding-platforms-section {
@@ -777,6 +863,8 @@ nav a:hover {
     margin: 40px 0;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 .coding-platforms-section .section-header {
@@ -799,6 +887,9 @@ nav a:hover {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1200px; /* Constrain overall width */
+    box-sizing: border-box;
 }
 
 .coding-platform-card {
@@ -810,6 +901,8 @@ nav a:hover {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
 }
 
 .coding-platform-card .platform-header {
@@ -848,57 +941,57 @@ nav a:hover {
 }
 
 .coding-platform-card .platform-link a:hover {
-    color: #c7c1f4;
+    color: #ffffff;
 }
 
 .coding-platform-card:hover {
     transform: translateY(-10px);
 }
 
-/* Tablet Devices */
 @media (max-width: 768px) {
     .coding-platforms-container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
+        gap: 20px; /* Reduce gap */
     }
 
     .coding-platform-card {
         flex: 1 1 calc(50% - 20px); /* Two cards per row */
-        max-width: 100%;
+        max-width: 100%; /* Allow full width */
     }
 }
 
 /* Mobile Devices */
 @media (max-width: 480px) {
+    .coding-platforms-section {
+        padding: 40px 15px; /* Adjust padding */
+    }
+
     .coding-platforms-container {
-        flex-direction: column;
+        flex-direction: column; /* Stack cards vertically */
         gap: 20px;
     }
 
     .coding-platform-card {
-        width: 100%;
+        width: 100%; /* Full width */
         margin-bottom: 20px;
     }
 
     .coding-platform-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.3rem; /* Adjust heading size */
     }
 
     .coding-platform-card p {
-        font-size: 1rem;
+        font-size: 1rem; /* Adjust text size */
     }
 
     .coding-platform-card .platform-header .platform-logo {
-        width: 30px;
+        width: 30px; /* Adjust logo size */
         margin-right: 5px;
     }
 }
 
-
 /* Projects Section */
 /* Projects Section */
-#projects {
+.projects-section {
     padding: 60px 20px;
     background-color: #c7c1f4;
     color: #333;
@@ -906,12 +999,18 @@ nav a:hover {
     margin-top: 40px;
     border-radius: 10px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrollbars */
 }
-
+.projects-section .projects-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
 #projects h2 {
     font-size: 2.5rem;
     color: #ffffff;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+    margin: 0;
     font-weight: bold;
 }
 
@@ -923,6 +1022,7 @@ nav a:hover {
     justify-items: center;
     margin: 0 auto; /* Centers the container */
     max-width: 1200px; /* Limits the maximum width of the project container */
+    box-sizing: border-box;
 }
 
 .project-card {
@@ -1024,6 +1124,8 @@ nav a:hover {
     margin-top: 40px;
     border-radius: 10px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 .contact-container {
@@ -1033,6 +1135,8 @@ nav a:hover {
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap; /* Added to ensure wrapping on smaller devices */
+    box-sizing: border-box;
+    padding: 0 15px; /* Added padding for smaller screens */
 }
 
 .contact-info, .contact-form {
@@ -1044,6 +1148,7 @@ nav a:hover {
     width: 100%;
     max-width: 550px; /* Added a max-width for better control */
     margin: 10px auto; /* Ensure centered alignment */
+    box-sizing: border-box;
 }
 
 .contact-info h2, .contact-form h3 {
@@ -1056,6 +1161,7 @@ nav a:hover {
     font-size: 1rem;
     color: #555;
     margin-bottom: 20px;
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
 .contact-info ul {
@@ -1067,7 +1173,7 @@ nav a:hover {
 .contact-info ul li {
     font-size: 1rem;
     color: #333;
-    margin: 10px 0;
+    margin-bottom: 20px;
     word-wrap: break-word; /* Prevent text overflow */
 }
 
@@ -1124,15 +1230,15 @@ nav a:hover {
     background-color: #7260fa;
 }
 
-/* Tablet Devices */
 @media (max-width: 768px) {
     .contact-container {
-        flex-direction: column; /* Stack items vertically */
-        gap: 20px; /* Reduce gap */
+        flex-direction: column; /* Stack vertically */
+        gap: 20px;
+        padding: 0 10px; /* Reduce padding */
     }
 
     .contact-info, .contact-form {
-        width: 100%;
+        width: 100%; /* Full width for each block */
         margin: 0 auto;
     }
 
@@ -1144,15 +1250,15 @@ nav a:hover {
 /* Mobile Devices */
 @media (max-width: 480px) {
     .contact-section {
-        padding: 40px 20px;
+        padding: 40px 10px; /* Reduce padding */
     }
 
     .contact-info h2, .contact-form h3 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Smaller headings */
     }
 
     .contact-info p, .contact-info ul li {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Smaller text */
     }
 
     .contact-form input, .contact-form textarea {
@@ -1161,8 +1267,8 @@ nav a:hover {
     }
 
     .contact-form button {
-        font-size: 1rem; /* Slightly smaller button text */
-        padding: 12px 25px; /* Adjust button padding */
+        font-size: 1rem;
+        padding: 12px 25px;
     }
 }
 
@@ -1175,6 +1281,9 @@ nav a:hover {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrollbars */
+    text-align: center;
 }
 
 .footer-container {
