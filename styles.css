@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: #111;
-    color: rgba(255, 255, 255, 0.895);
+    color: rgba(255, 255, 255, 0.895);      
 }
 /* Header Section */
 header {
@@ -380,6 +380,9 @@ nav a:hover {
 
     .header-right h1 {
         font-size: 2.5rem; /* Adjust heading size */
+         font-family: "Lugrasimo", cursive;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .header-right p {
@@ -411,6 +414,10 @@ nav a:hover {
 
     .header-right h1 {
         font-size: 2rem; /* Further reduce heading size */
+        font-family: "Lugrasimo", cursive;
+        font-weight: 400;
+        font-style: normal;
+        
     }
 
     .header-right p {
@@ -539,6 +546,7 @@ nav a:hover {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align the overall section */
     /* position: relative; */
     /* z-index: 2; */
 }
@@ -565,6 +573,8 @@ nav a:hover {
     display: flex;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center; /* Center-align text within each box */
 }
 
 .achievement:hover {
@@ -573,7 +583,7 @@ nav a:hover {
 }
 
 .achievement i {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #f5f5f5;
     margin-right: 20px;
 }
@@ -582,13 +592,16 @@ nav a:hover {
     font-size: 1.5rem;
     font-weight: bold;
     color: #f5f5f5;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 .achievement-content p {
     font-size: 1.1rem;
     color: #ddd;
     line-height: 1.6;
+    text-align: justify; /* Justify paragraph text */
+    margin-top: 10px;
 }
 
 .achievement-content p:last-child {
@@ -623,6 +636,13 @@ nav a:hover {
     .achievements h3 {
         font-size: 2rem; /* Adjust heading size */
     }
+    .achievement i {
+        font-size: 2.5rem; /* Reduce icon size */
+    }
+
+    .achievement-content p {
+        font-size: 1rem; /* Smaller paragraph size */
+    }
 }
 
 /* Mobile Devices (480px and below) */
@@ -646,12 +666,16 @@ nav a:hover {
     .about-image img {
         max-width: 100%; /* Fit image within mobile width */
     }
-
+    .achievements {
+        padding: 20px; /* Compact padding */
+    }
     .download-section .btn {
         font-size: 1rem;
         padding: 0.8rem 1.5rem;
     }
-
+    .achievement {
+        padding: 15px; /* Compact padding for boxes */
+    }
     .achievements h3 {
         font-size: 1.8rem;
     }
